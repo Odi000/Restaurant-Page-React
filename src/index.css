@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "KGHAPPY";
+  src: url(../public/fonts/kg_happy/KGHAPPY.ttf);
+}
+
+@font-face {
+  font-family: "KGShadows";
+  src: url(../public/fonts/kg_happy/KGHAPPYShadows.ttf);
+}
+
+@font-face {
+  font-family: "KGSolid";
+  src: url(../public/fonts/kg_happy/KGHAPPYSolid.ttf);
+}
+
+@font-face {
+  font-family: KGTangledUpInYou;
+  src: url(../public/fonts/kg_tangled_up_in_you/KGTangledUpInYou.ttf);
+}
+
+@font-face {
+  font-family: KGTangledUpInYou2;
+  src: url(../public/fonts/kg_tangled_up_in_you/KGTangledUpInYou2.ttf);
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: 10px;
+  font-family: "KGSolid", sans-serif;
+  --main-clr: #E21837;
+  background-color: #202020;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}

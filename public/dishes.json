@@ -1,0 +1,338 @@
+[
+    {
+        "id": 1,
+        "name": "SUMMER ROLLS",
+        "description": "Fresh rice paper summer rolls with vermicelli & pickle. Veggie, chicken, prawn, or veganchicken",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 2,
+        "name": "SPICY SALAD ROLLS",
+        "description": "spicy salad rolls with enoki, chilli & herbs (carb free)",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 3,
+        "name": "CRISPY BABY SQUID",
+        "description": "Tender fried baby squid with a salt, pepper & lime dip",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 4,
+        "name": "SPRING ROLLS",
+        "description": "Crispy spring rolls served with lettuce & herbs to wrap & dip. Veggie or pork.",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 5,
+        "name": "SEAFOOD SPRING ROLL",
+        "description": "Large crispy spring roll of tiger prawn, crab & pork with nước chấm dipping sauce",
+        "classification": ["Dairy Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 6,
+        "name": "CHICKEN WINGS",
+        "description": "Seasoned, crispy chicken wings served with sriracha",
+        "classification": ["Dairy Free"],
+        "category": "Starters"
+    },
+    {
+        "id": 7,
+        "name": "BEEF BETEL",
+        "description": "Beef wrapped in betel leaves, served with rice vermicelli sheets & nuoc cham",
+        "classification": ["Dairy Free"],
+        "category": "Starters"
+    },
+    {
+        "id": 8,
+        "name": "PORK MEATBALLS",
+        "description": "Homemade pork & lemongrass meatballs with lettuce & herbs to wrap & dip",
+        "classification": ["Dairy Free"],
+        "category": "Starters"
+    },
+    {
+        "id": 9,
+        "name": "VIETNAMESE PANCAKE",
+        "description": "Savoury Vietnamese crispy crepe with rice papers & herbs. Chicken & prawn, tofu or vegan chicken",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 10,
+        "name": "LOTUS STEMS",
+        "description": "With green beans",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 11,
+        "name": "MORNING GLORY",
+        "description": "Stir fried morning glory (water spinach) in garlic",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 12,
+        "name": "STIR FRIED CHINESE LEAF",
+        "description": "In soy sauce",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Starters"
+    },
+    {
+        "id": 13,
+        "name": "CHICKEN SALAD",
+        "description": "Shredded chicken salad with Vietnamese herbs, peppers and a chilli ginger dressing",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Salads"
+    },
+    {
+        "id": 14,
+        "name": "VEGGIE SALAD",
+        "description": "Same as Goi Ga, minus the chicken, or you can add in vegan THIS isn't chicken",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Salads"
+    },
+    {
+        "id": 15,
+        "name": "GREEN PAPAYA SALAD",
+        "description": "Crunchy green papaya salad with peanuts & prawn crackers. Veggie, prawn or vegan THIS isn't chicken",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Salads"
+    },
+    {
+        "id": 16,
+        "name": "MANGO SALAD",
+        "description": "Spicy green mango salad topped with pork, dried shrimp & peanuts",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Salads"
+    },
+    {
+        "id": 17,
+        "name": "CHICKEN CURRY",
+        "description": "Rich, fragrant Vietnamese curry with veggies & mushrooms, served with broken rice & chicken",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 18,
+        "name": "BRISKET CURRY",
+        "description": "Rich, fragrant Vietnamese curry with veggies & mushrooms, served with broken rice & beef brisket",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 19,
+        "name": "PRAWN CURRY",
+        "description": "Rich, fragrant Vietnamese curry with veggies & mushrooms, served with broken rice & king prawns",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 20,
+        "name": "TOFU & MUSHROOM CURRY",
+        "description": "Rich, fragrant Vietnamese curry with veggies & mushrooms, served with broken rice & tofu",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 21,
+        "name": "THIS ISN'T CHICKEN CURRY",
+        "description": "Rich, fragrant Vietnamese curry with veg & mushrooms, served with rice & vegan THIS isn't chicken",
+        "classification": [],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 22,
+        "name": "CHICKEN FRIED RICE",
+        "description": "Aromatic, spicy wok-fried broken rice with chicken & dried shrimp with option to add a fried egg",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 23,
+        "name": "MUSHROOM FRIED RICE",
+        "description": "Spicy wok-fried broken rice with shiitake mushroom & Thai basil with option to add a fried egg",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 24,
+        "name": "VEGAN CHICKEN FRIED RICE",
+        "description": "Spicy wok-fried broken rice with vegan THIS isn't chicken",
+        "classification": [],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 25,
+        "name": "PORK RICE BOWL",
+        "description": "Rice bowls topped with loads of veg & herbs, served with chargrilled pork",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 26,
+        "name": "BEEF RICE BOWL",
+        "description": "Rice bowls topped with loads of veg & herbs, served with beef in betal leaf",
+        "classification": ["Dairy Free", "Gluten Free"],
+        "category": "Curry & Rice"
+    },
+    {
+        "id": 27,
+        "name": "CHICKEN NOODLES",
+        "description": "Wok-fried noodles with all the trimmings, topped with chicken",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Wok-fried Noodles"
+    },
+    {
+        "id": 28,
+        "name": "BEEF NOODLES",
+        "description": "Wok-fried noodles with all the trimmings, topped with beef brisket",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Wok-fried Noodles"
+    },
+    {
+        "id": 29,
+        "name": "CHICKEN & PRAWN NOODLES",
+        "description": "Wok-fried noodles with all the trimmings, topped with chicken & prawns",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Wok-fried Noodles"
+    },
+    {
+        "id": 30,
+        "name": "TOFU & MUSHROOM NOODLES",
+        "description": "Wok-fried noodles with all the trimmings, topped with tofu & mushrooms",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Wok-fried Noodles"
+    },
+    {
+        "id": 31,
+        "name": "VEGAN CHICKEN NOODLES",
+        "description": "Wok-fried noodles with all the trimmings, topped with vegan THIS isn't chicken noodles",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free"],
+        "category": "Wok-fried Noodles"
+    },
+    {
+        "id": 32,
+        "name": "BÚN CHICKEN",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with chicken",
+        "classification": ["Dairy Free", "<500cal"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 33,
+        "name": "BÚN BEEF",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with beef",
+        "classification": ["Dairy Free"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 34,
+        "name": "BÚN KING PRAWN",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with king prawns",
+        "classification": ["Dairy Free", "<500cal"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 35,
+        "name": "BÚN NEM NUONG PORK BALLS",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with pork meatballs",
+        "classification": ["Dairy Free"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 36,
+        "name": "BÚN TOFU & MUSHROOM",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with tofu & mushroom",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "<500cal"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 37,
+        "name": "BÚN VEGGIE SPRING ROLLS",
+        "description": "Vermicelli rice noodles with a lemongrass and chilli wok-fried topping, served with spring rolls",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "<500cal"],
+        "category": "Vermicelli Noodles"
+    },
+    {
+        "id": 38,
+        "name": "PRAWN CRACKERS",
+        "description": "with sweet chilli sauce",
+        "classification": ["Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Sides"
+    },
+    {
+        "id": 39,
+        "name": "'PRAWN-LESS CRACKERS'",
+        "description": "with sweet chilli sauce",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Sides"
+    },
+    {
+        "id": 40,
+        "name": "\"PRAWNLESS\" CRACKERS",
+        "description": "with sweet chilli sauce",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Sides"
+    },
+    {
+        "id": 41,
+        "name": "STIR FRIED SPINACH",
+        "description": "Stir fried morning glory (water spinach) in garlic",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Sides"
+    },
+    {
+        "id": 42,
+        "name": "CHINESE LEAF",
+        "description": "Stir fried Chinese leaf in soy sauce",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free", "<500cal"],
+        "category": "Sides"
+    },
+    {
+        "id": 43,
+        "name": "CRISPY BANANA FRITTER",
+        "description": "Banana fritter, as is or with ice cream (coconut or honey & ginger)",
+        "classification": ["Vegan", "Vegetarian", "Dairy Free", "Gluten Free"],
+        "category": "Desserts"
+    },
+    {
+        "id": 44,
+        "name": "PANDAN WAFFL",
+        "description": "Freshly cooked pandan waffle served with ice cream or sorbet",
+        "classification": ["Gluten Free"],
+        "category": "Desserts"
+    },
+    {
+        "id": 45,
+        "name": "CHOCOLATE TRUFFLE SLICE",
+        "description": "With ice cream or sorbet",
+        "classification": [],
+        "category": "Desserts"
+    },
+    {
+        "id": 46,
+        "name": "VIETNAMESE AFFOGATO",
+        "description": "Hot Vietnamese filter coffee to pour over a scoop of condensed milk ice cream",
+        "classification": [],
+        "category": "Desserts"
+    },
+    {
+        "id": 47,
+        "name": "FRESH FRUIT SORBET",
+        "description": "delicious fresh fruit sorbets from La Maison des Sorbets. raspberry or mango",
+        "classification": ["Vegan"],
+        "category": "Desserts"
+    },
+    {
+        "id": 48,
+        "name": "ICE CREAM",
+        "description": "Rich, sumptuous dairy ice creams made with whole milk & double cream.",
+        "classification": ["Gluten Free"],
+        "category": "Desserts"
+    }
+]

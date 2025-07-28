@@ -9,11 +9,11 @@ import useMenu from "./useMenu";
 export const Meals = createContext({ meals: [], error: null, loading: true });
 
 function HomePage() {
-    const { meals, error, loading } = useMenu();
+    const { data:meals, error:errorMeals, loading:loadingMeals } = useMenu('/dishes.json');
 
     return (
         <div className="homePage">
-            <Meals value={{ meals, error, loading }}>
+            <Meals value={{ meals, errorMeals, loadingMeals }}>
                 <Navbar></Navbar>
                 <MainSection></MainSection>
                 <OurMenu></OurMenu>

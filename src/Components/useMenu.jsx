@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-function useMenu() {
-    const [meals, setMeals] = useState([]);
+function useMenu(url) {
+    const [data, setMeals] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true)
 
@@ -10,7 +10,7 @@ function useMenu() {
 
         async function getMenuItems() {
             try {
-                const response = await fetch('/dishes.json');
+                const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error(`HTTP error: Status ${response.status}`);
@@ -29,7 +29,7 @@ function useMenu() {
         }
     }, [])
 
-    return { meals, error, loading };
+    return { data, error, loading };
 }
 
 export default useMenu

@@ -1,10 +1,12 @@
 import { useContext, useMemo, useCallback, useState, useRef, memo } from "react";
 import { Link } from "react-router-dom";
 import { Meals } from "./Homepage";
+import useMenu from "./useMenu";
 
 function OurMenu() {
-    const { meals, error, loading } = useContext(Meals);
+    const { meals, errorMeals, loadingMeals } = useContext(Meals);
     const categories = useMemo(() => getCategories(), [meals]);
+    const { data: categorieDetails, error: errorCategories, loading: loadingCategories } = useMenu('/categories.json');
     const allFilters = useMemo(() => getFilters(), [meals]);
     const [selectedCategory, setSelectedCategory] = useState('Starters');
     const [activeFilters, setActiveFilters] = useState([]);
@@ -34,7 +36,7 @@ function OurMenu() {
 
     const handleFilterChange = useCallback((e) => {
         if (!e.target.checked) {
-            setActiveFilters(activeFilters.filter(filter => filter != e.target.name))
+            setActiveFilters(activeFilters => activeFilters.filter(filter => filter != e.target.name))
         } else {
             setActiveFilters(activeFilters => [...activeFilters, e.target.name])
         };
@@ -45,8 +47,15 @@ function OurMenu() {
             <h1>Our Menu</h1>
             <Dropdown handleCategoryChange={handleCategoryChange} categories={categories}></Dropdown>
             <div className="menu">
-                <Filters filters={allFilters} handleFilterChange={handleFilterChange}></Filters>
-                <MenuList selectedCategory={selectedCategory} activeFilters={activeFilters}></MenuList>
+                <CategoriesWindow
+                    categorieDetails={categorieDetails}
+                    loadingCategories={loadingCategories}
+                    selectedCategory={selectedCategory}
+                ></CategoriesWindow>
+                <div className="filtersAndListMenu">
+                    <Filters filters={allFilters} handleFilterChange={handleFilterChange}></Filters>
+                    <MenuList selectedCategory={selectedCategory} activeFilters={activeFilters}></MenuList>
+                </div>
             </div>
         </section>
     )
@@ -78,18 +87,44 @@ const Filters = memo(({ filters, handleFilterChange }) => {
 const MenuList = memo(({ selectedCategory, activeFilters }) => {
     const { meals, error, loading } = useContext(Meals);
     const mealsToShow = useMemo(() => meals.filter(meal => meal.category === selectedCategory), [selectedCategory, meals]);
+    const mealsPassFilter = useMemo(() => {
+        return mealsToShow.filter(meal => {
+            let pass = true;
+            for (const filter of activeFilters) {
+                if (!meal.classification.includes(filter)) {
+                    pass = false;
+                    return pass;
+                }
+            }
+            return pass
+        })
+    }, [selectedCategory, activeFilters, meals]);
 
     return (
         <div className="menuList">
             {mealsToShow.map(meal => {
+                const filtersActive = Boolean(activeFilters.length);
+                const passesFilter = mealsPassFilter.includes(meal);
                 return (
-                    <div className="meal">
+                    <div key={meal.id} className={!filtersActive ? "meal" : passesFilter ? "meal pass" : "meal fail"}>
                         <h2 className="name">{meal.name}</h2>
                         <p className="description">{meal.description}</p>
                         <div className="line"></div>
                     </div>
                 )
             })}
+        </div>
+    )
+})
+
+const CategoriesWindow = memo(({ categorieDetails, loadingCategories, selectedCategory }) => {
+    if (loadingCategories) return;
+    const [category] = categorieDetails.filter(category => category.name === selectedCategory);
+    return (
+        <div className="windowContainer">
+            <h1 className="category">{category.name}</h1>
+            <p className="description">{category.description}</p>
+            <img width={200} src={category.image} />
         </div>
     )
 })

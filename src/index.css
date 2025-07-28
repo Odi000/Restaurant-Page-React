@@ -36,9 +36,22 @@
   font-family: "KGSolid", sans-serif;
   --main-clr: #E21837;
   background-color: #202020;
+  color: wheat;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
+}
+
+.meal {
+  transition: color ease-in .3s;
+}
+
+.pass{
+  color: green;
+}
+
+.fail {
+  color: rgba(255, 150, 90, 0.55);
 }

@@ -15,7 +15,7 @@ function Buttons() {
             <Link>Menu</Link>
             <Link>Book A Table</Link>
             <Link>Dzo to go</Link>
-            <Link to="careers">Careers</Link>
+            <Link to="careers/careers">Careers</Link>
         </div >
     )
 }

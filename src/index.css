@@ -48,10 +48,32 @@ nav {
   transition: color ease-in .3s;
 }
 
-.pass{
+.pass {
   color: green;
 }
 
 .fail {
   color: rgba(255, 150, 90, 0.55);
+}
+
+.circle svg {
+  width: 40px;
+}
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.sidebar.open {
+  display: flex;
+}
+
+.sidebar img {
+  width: 200px;
 }

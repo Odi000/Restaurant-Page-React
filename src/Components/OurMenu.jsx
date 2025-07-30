@@ -129,10 +129,4 @@ const CategoriesWindow = memo(({ categorieDetails, loadingCategories, selectedCa
     )
 })
 
-function SideDisplay() {
-    return (
-        <></>
-    )
-}
-
 export default OurMenu;

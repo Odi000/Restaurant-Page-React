@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import SideBar from "./SideBar";
 
 function Navbar() {
     return (
@@ -40,8 +42,18 @@ function MainLinks() {
 }
 
 function Hamburger() {
+    const sidebarRef = useRef(null);
+
+    function handleOpen(){
+        sidebarRef.current.classList.add("open");
+        document.body.style.overflow = "hidden"
+    }
+
     return (
-        <div style={{ width: "65px", height: "65px", backgroundColor: "#ff000094" }}></div>
+        <>
+            <div onClick={handleOpen} style={{ width: "65px", height: "65px", backgroundColor: "#ff000094" }}></div>
+            <SideBar sidebarRef={sidebarRef}></SideBar>
+        </>
     )
 }
 

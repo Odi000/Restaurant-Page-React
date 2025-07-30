@@ -5,6 +5,8 @@ import MainSection from "./MainSection";
 import OurMenu from "./OurMenu";
 import Careers from "./Careers";
 import useMenu from "./useMenu";
+import { CareersHomePage } from "./Careers";
+import Footer from "./Footer";
 
 export const Meals = createContext({ meals: [], error: null, loading: true });
 
@@ -18,6 +20,8 @@ function HomePage() {
                 <MainSection></MainSection>
                 <OurMenu></OurMenu>
             </Meals>
+            <CareersHomePage></CareersHomePage>
+            <Footer></Footer>
         </div>
 
     )

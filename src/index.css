@@ -39,11 +39,6 @@
   color: wheat;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
 .meal {
   transition: color ease-in .3s;
 }

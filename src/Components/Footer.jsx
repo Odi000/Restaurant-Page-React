@@ -42,17 +42,42 @@ export function Socials() {
     )
 }
 
-function FooterLinks() {
+export function FooterLinks() {
     return (
         <div className="footerLinks">
             <div className="up">
-                <Link>Careers</Link>
+                <Link to="careers" >Careers</Link>
                 <Link>FAQs</Link>
                 <Link>Covid-19 Policy</Link>
             </div>
             <div className="bottom">
                 <p>© Copyright Dzo 2025</p>
                 <a href="https://github.com/Odi000" target="_blank">Website by Odi000</a>
+            </div>
+        </div>
+    )
+}
+
+export function NewsAndOffers() {
+    return (
+        <div className="newsAndOffers">
+            <div className="left">
+                <div className="left-left">
+                    <img src="/images/notepad.png" />
+                </div>
+                <div className="left-right">
+                    <h2>NEWS AND OFFERS</h2>
+                    <div>
+                        <input type="text" placeholder="Email" />
+                        <button className="redButtton">Submit</button>
+                    </div>
+                    <div><input type="checkbox" id="agree" />
+                        <label htmlFor="agree">By signing up you are agreeing to receive marketing updates from Pho. You can find more information in our <span>Privacy Policy</span></label></div>
+                </div>
+            </div>
+            <div className="right">
+                <h1>GET SOCIAL</h1>
+                <Socials></Socials>
             </div>
         </div>
     )

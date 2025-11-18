@@ -1,10 +1,10 @@
-import { useContext, useMemo, useCallback, useState, useRef, memo } from "react";
+import { useContext, useMemo, useCallback, useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Meals } from "./Homepage";
 import useMenu from "./useMenu";
 
 function OurMenu() {
-    const { meals, errorMeals, loadingMeals } = useContext(Meals);
+    const { meals, errorMeals, loadingMeals, ourMenuRef } = useContext(Meals);
     const categories = useMemo(() => getCategories(), [meals]);
     const { data: categorieDetails, error: errorCategories, loading: loadingCategories } = useMenu('/categories.json');
     const allFilters = useMemo(() => getFilters(), [meals]);
@@ -43,7 +43,7 @@ function OurMenu() {
     }, []);
 
     return (
-        <section className="menuContainer">
+        <section className="menuContainer" ref={ourMenuRef}>
             <h1>Our Menu</h1>
             <Dropdown handleCategoryChange={handleCategoryChange} categories={categories}></Dropdown>
             <div className="menu">

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { memo } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { fab } from "@fortawesome/free-brands-svg-icons";
 // import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -46,7 +46,7 @@ export function FooterLinks() {
     return (
         <div className="footerLinks">
             <div className="up">
-                <Link to="careers" >Careers</Link>
+                <NavLink to="/careers" >Careers</NavLink>
                 <Link>FAQs</Link>
                 <Link>Covid-19 Policy</Link>
             </div>

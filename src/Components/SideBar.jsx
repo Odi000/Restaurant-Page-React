@@ -1,5 +1,5 @@
 import { useRef, useEffect, useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { Socials } from "./Footer"
 import sideBarImg from "/images/sidebar.jpg"
 import { Meals } from "./Homepage"
@@ -9,11 +9,10 @@ function SideBar({ sidebarRef }) {
 
     function scrollToMenu() {
         handleClose()
-        
+
         ourMenuRef.current.scrollIntoView({
             behavior: "smooth",
         })
-
     }
 
     function handleClose() {
@@ -26,10 +25,10 @@ function SideBar({ sidebarRef }) {
             <div className="image"><img src={sideBarImg} /></div>
             <div className="options">
                 <div className="links">
-                    <Link onClick={scrollToMenu} >MENU</Link>
+                    <Link to="/" onClick={scrollToMenu} >MENU</Link>
                     <Link>LOCATIONS</Link>
                     <Link>BOOKINGS</Link>
-                    <Link to="careers" onClick={handleClose}>CAREERS</Link>
+                    <NavLink to="/careers" onClick={handleClose}>CAREERS</NavLink>
                     <Link>CONTACT</Link>
                 </div>
                 <Socials></Socials>

@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { Meals } from "./Homepage";
 import { useContext } from "react";
+import styles from "./MainSection.module.css";
+
 
 function MainSection() {
     return (
-        <section className="mainSection">
+        <section className={styles.mainSection}>
             <h1>Vietnamese street food</h1>
             <Buttons></Buttons>
+            <img src="/images/hero-image.jpg"/>
         </section>
     )
 }
@@ -21,7 +24,7 @@ function Buttons() {
     }
 
     return (
-        <div className="buttons">
+        <div className={styles.buttons}>
             <Link onClick={scrollToMenu} >Menu</Link>
             <Link>Book A Table</Link>
             <Link>Dzo to go</Link>

@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useContext, useEffect, useRef } from "react";
 import SideBar from "./SideBar";
 import styles from "./css_modules/Navbar.module.css";
+import { Meals } from "./Homepage";
 
 function Navbar() {
     return (
@@ -31,13 +32,33 @@ function Logo() {
 }
 
 function CenterLinks() {
+    const centerLinksRef = useRef(null);
+    const ourMenuRef = useContext(Meals);
+
+    const scrollToMenu = () => {
+        ourMenuRef.current.scrollIntoView({
+            behavior: "smooth",
+        })
+    }
+
+    const handleScroll = () => {
+        const pxScrolled = document.documentElement.scrollTop;
+        centerLinksRef.current.style.top = `-${pxScrolled}px`;
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => removeEventListener("scroll", handleScroll);
+    }, [])
+
     return (
-        <div className={styles.centerLinks}>
-            <Link onClick >MENU</Link>
+        <div ref={centerLinksRef} className={styles.centerLinks}>
+            <Link to="/" onClick={handleScroll} >MENU</Link>
             <Link>LOCATIONS</Link>
             <Link>OUR STORY</Link>
             <Link>GIFT VOUCHERS</Link>
-            <Link to="careers">CAREERS</Link>
+            <NavLink to="/careers" end  >CAREERS</NavLink>
         </div>
     )
 }

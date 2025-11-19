@@ -11,6 +11,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding-top: 40px;
+    z-index: 1;
 }
 
 .wrapper {
@@ -53,6 +54,7 @@
 }
 
 .centerLinks {
+    position: relative;
     font-family: KGTangledUpInYou2, sans-serif;
     padding-top: 10px;
     font-size: 28px;

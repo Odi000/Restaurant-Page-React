@@ -1,7 +1,8 @@
-import { useContext, useMemo, useCallback, useState, memo } from "react";
+import { useContext, useMemo, useRef, useCallback, useState, memo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Meals } from "./Homepage";
 import useMenu from "./useMenu";
+import styles from "./css_modules/OurMenu.module.css"
 
 function OurMenu() {
     const { meals, errorMeals, loadingMeals, ourMenuRef } = useContext(Meals);
@@ -43,20 +44,21 @@ function OurMenu() {
     }, []);
 
     return (
-        <section className="menuContainer" ref={ourMenuRef}>
+        <section className={styles.menuContainer} ref={ourMenuRef}>
             <h1>Our Menu</h1>
             <Dropdown handleCategoryChange={handleCategoryChange} categories={categories}></Dropdown>
-            <div className="menu">
+            <div className={styles.menu}>
                 <CategoriesWindow
                     categorieDetails={categorieDetails}
                     loadingCategories={loadingCategories}
                     selectedCategory={selectedCategory}
                 ></CategoriesWindow>
-                <div className="filtersAndListMenu">
+                <div className={styles.filtersAndListMenu}>
                     <Filters filters={allFilters} handleFilterChange={handleFilterChange}></Filters>
                     <MenuList selectedCategory={selectedCategory} activeFilters={activeFilters}></MenuList>
                 </div>
             </div>
+            <Background></Background>
         </section>
     )
 }
@@ -125,6 +127,32 @@ const CategoriesWindow = memo(({ categorieDetails, loadingCategories, selectedCa
             <h1 className="category">{category.name}</h1>
             <p className="description">{category.description}</p>
             <img width={200} src={category.image} />
+        </div>
+    )
+})
+
+const Background = memo(() => {
+    const backgroundRef = useRef(null);
+
+    useEffect(() => {
+        function manageScroll() {
+            const scrolledFromTop = document.documentElement.scrollTop;
+            const totalScrollable = document.documentElement.scrollHeight;
+            const p = scrolledFromTop / totalScrollable;
+            const range = 400;
+            const initialTop = 140;
+            backgroundRef.current.style.top = `${(initialTop - range * p).toFixed(0)}px`;
+            // console.log((p * 100).toFixed(0) + "%" + " || " + (range * p).toFixed(0) + "px")
+        }
+
+        window.addEventListener("scroll", manageScroll)
+
+        return () => window.removeEventListener("scroll", manageScroll);
+    }, [])
+
+    return (
+        <div id="kar" ref={backgroundRef} className={styles.background}>
+            <img src="/images/background.jpg" />
         </div>
     )
 })

@@ -1,0 +1,17 @@
+.menuContainer {
+    /* position: relative; */
+}
+
+.background {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    z-index: -2;
+    width: 100vw;
+}
+
+.background img {
+    margin: 0 auto;
+    object-fit: cover;
+    width: 100%;
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Meals } from "./Homepage";
 import { useContext } from "react";
 import styles from "./MainSection.module.css";
@@ -9,7 +9,9 @@ function MainSection() {
         <section className={styles.mainSection}>
             <h1>Vietnamese street food</h1>
             <Buttons></Buttons>
-            <img src="/images/hero-image.jpg"/>
+            <div className={styles.imgWrapper}>
+                <img src="/images/hero-image.jpg" />
+            </div>
         </section>
     )
 }
@@ -28,7 +30,8 @@ function Buttons() {
             <Link onClick={scrollToMenu} >Menu</Link>
             <Link>Book A Table</Link>
             <Link>Dzo to go</Link>
-            <Link to="careers">Careers</Link>
+            <NavLink to="/careers" end>Careers</NavLink>
+            <Link>Nutrition</Link>
         </div >
     )
 }

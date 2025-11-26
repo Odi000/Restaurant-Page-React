@@ -65,7 +65,7 @@ function OurMenu() {
 
 const Dropdown = ({ handleCategoryChange, categories }) => {
     return (
-        <select id="kot" onChange={handleCategoryChange} name="categoryList">
+        <select className={styles.dropdown} onChange={handleCategoryChange} name="categoryList">
             {categories.map(category => <option key={category} value={category}>{category}</option>)}
         </select>
     )
@@ -73,10 +73,10 @@ const Dropdown = ({ handleCategoryChange, categories }) => {
 
 const Filters = memo(({ filters, handleFilterChange }) => {
     return (
-        <div className="filters">
+        <div className={styles.filters}>
             {filters.map(filter => {
                 return (
-                    <div className="filter" key={filter}>
+                    <div className={styles.filter} key={filter}>
                         <input type="checkbox" name={filter} id={filter} onChange={handleFilterChange} />
                         <label htmlFor={filter}>{filter}</label>
                     </div>
@@ -103,15 +103,15 @@ const MenuList = memo(({ selectedCategory, activeFilters }) => {
     }, [selectedCategory, activeFilters, meals]);
 
     return (
-        <div className="menuList">
+        <div className={styles.menuList}>
             {mealsToShow.map(meal => {
                 const filtersActive = Boolean(activeFilters.length);
                 const passesFilter = mealsPassFilter.includes(meal);
                 return (
-                    <div key={meal.id} className={!filtersActive ? "meal" : passesFilter ? "meal pass" : "meal fail"}>
-                        <h2 className="name">{meal.name}</h2>
-                        <p className="description">{meal.description}</p>
-                        <div className="line"></div>
+                    <div key={meal.id} className={!filtersActive ? styles.meal : passesFilter ? `${styles.meal} ${styles.pass}`: `${styles.meal} ${styles.fail}`}>
+                        <h2 className={styles.name}>{meal.name}</h2>
+                        <p className={styles.illustration}>{meal.description}</p>
+                        <div className={styles.line}></div>
                     </div>
                 )
             })}
@@ -123,10 +123,12 @@ const CategoriesWindow = memo(({ categorieDetails, loadingCategories, selectedCa
     if (loadingCategories) return;
     const [category] = categorieDetails.filter(category => category.name === selectedCategory);
     return (
-        <div className="windowContainer">
-            <h1 className="category">{category.name}</h1>
-            <p className="description">{category.description}</p>
-            <img width={200} src={category.image} />
+        <div className={styles.windowContainer}>
+            <h1 className={styles.category}>{category.name}</h1>
+            <p className={styles.description}>{category.description}</p>
+            <div className={styles.windowImage} >
+            <img src={category.image} />
+            </div>
         </div>
     )
 })

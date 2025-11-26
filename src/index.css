@@ -35,20 +35,8 @@
   font-size: 10px;
   font-family: "KGSolid", sans-serif;
   --main-clr: #E21837;
+  --main-border-clr: #656565;
   background-color: #202020;
-  color: wheat;
-}
-
-.meal {
-  transition: color ease-in .3s;
-}
-
-.pass {
-  color: green;
-}
-
-.fail {
-  color: rgba(255, 150, 90, 0.55);
 }
 
 .circle svg {

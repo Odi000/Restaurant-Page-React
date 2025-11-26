@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import staffImg from "/images/careers.jpg";
 import { useState } from "react";
+import staffImg from "/images/careers.jpg";
 import Navbar from "./Navbar";
 import { NewsAndOffers, FooterLinks } from "./Footer";
+import styles from "./css_modules/Careers.module.css"
 
 
 export default function Careers() {
@@ -46,16 +47,18 @@ function Vacancies({ openVacancies, setOpenVacancies }) {
 
 export function CareersHomePage() {
     return (
-        <div className="careersHomePage">
-            <div className="image">
-                <img src={staffImg} />
+        <div className={styles.careersHomePage}>
+            <div className={styles.image}>
+                <div>
+                    <img src={staffImg} />
+                </div>
             </div>
-            <div className="info">
+            <div className={styles.info}>
                 <h2>CAREERS</h2>
                 <h1>We are hiring!</h1>
-                <div className="description">
+                <div className={styles.description}>
                     <p>Pho is so much more than a bowl of noodle soup. It’s an obsession – the soul of a nation. Working at Pho is much the same. It’s more than a job, it’s a career. No experience needed, we'd love to hear from you!</p>
-                    <Link to="careers" className="redButton">Learn More</Link>
+                    <Link to="careers" className={styles.redButton}>Learn More</Link>
                 </div>
             </div>
         </div>

@@ -1,0 +1,78 @@
+.careersHomePage {
+    max-width: 1200px;
+    display: flex;
+    gap: 30px;
+    margin: 200px auto;
+}
+
+.image {
+    max-width: 550px;
+    background-color: white;
+    border: 3px solid #c7c7c7;
+}
+
+.image>div {
+    max-height: 550px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.image img {
+    height: 550px;
+    object-fit: cover;
+}
+
+
+.info h2 {
+    user-select: none;
+    background-color: var(--main-clr);
+    white-space: nowrap;
+    width: fit-content;
+    font-size: 34px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    margin: 0 auto 20px;
+}
+
+.info h1 {
+    user-select: none;
+    font-family: KGHAPPY;
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 52px;
+    background-color: white;
+    padding: 15px;
+    width: fit-content;
+    margin: 0 auto 50px;
+}
+
+.description {
+    width: 74%;
+    background-color: black;
+    padding: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.description p {
+    color: white;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: .32px;
+    margin-bottom: 35px;
+}
+
+.redButton {
+    display: inline-block;
+    background-color: var(--main-clr);
+    color: white;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 16px;
+    transition: background .25s ease;
+}
+
+.redButton:hover {
+    background-color: black;
+}

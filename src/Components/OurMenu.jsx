@@ -108,7 +108,7 @@ const MenuList = memo(({ selectedCategory, activeFilters }) => {
                 const filtersActive = Boolean(activeFilters.length);
                 const passesFilter = mealsPassFilter.includes(meal);
                 return (
-                    <div key={meal.id} className={!filtersActive ? styles.meal : passesFilter ? `${styles.meal} ${styles.pass}`: `${styles.meal} ${styles.fail}`}>
+                    <div key={meal.id} className={!filtersActive ? styles.meal : passesFilter ? `${styles.meal} ${styles.pass}` : `${styles.meal} ${styles.fail}`}>
                         <h2 className={styles.name}>{meal.name}</h2>
                         <p className={styles.illustration}>{meal.description}</p>
                         <div className={styles.line}></div>
@@ -127,7 +127,7 @@ const CategoriesWindow = memo(({ categorieDetails, loadingCategories, selectedCa
             <h1 className={styles.category}>{category.name}</h1>
             <p className={styles.description}>{category.description}</p>
             <div className={styles.windowImage} >
-            <img src={category.image} />
+                <img src={category.image} />
             </div>
         </div>
     )
@@ -138,13 +138,14 @@ const Background = memo(() => {
 
     useEffect(() => {
         function manageScroll() {
+            const width = window.innerWidth;
             const scrolledFromTop = document.documentElement.scrollTop;
             const totalScrollable = document.documentElement.scrollHeight;
             const p = scrolledFromTop / totalScrollable;
-            const range = 400;
+            const range = width <= 600 ? 820 :width <= 720 ? 780 : width <= 830 ? 700 : 610;
+            // const range = 610;
             const initialTop = 140;
             backgroundRef.current.style.top = `${(initialTop - range * p).toFixed(0)}px`;
-            // console.log((p * 100).toFixed(0) + "%" + " || " + (range * p).toFixed(0) + "px")
         }
 
         window.addEventListener("scroll", manageScroll)

@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom"
 import { Socials } from "./Footer"
 import sideBarImg from "/images/sidebar.jpg"
 import { Meals } from "./Homepage"
+import styles from "./css_modules/SideBar.module.css";
 
 function SideBar({ sidebarRef }) {
     const { ourMenuRef } = useContext(Meals);
@@ -16,15 +17,16 @@ function SideBar({ sidebarRef }) {
     }
 
     function handleClose() {
-        sidebarRef.current.classList.remove("open");
+        const classList = [...sidebarRef.current.classList];
+        sidebarRef.current.classList.remove(classList.find(el=>el.match(/open/)));
         document.body.style.overflow = "visible";
     }
 
     return (
-        <div className="sidebar" ref={sidebarRef}>
-            <div className="image"><img src={sideBarImg} /></div>
-            <div className="options">
-                <div className="links">
+        <div className={styles.sidebar} ref={sidebarRef}>
+            <div className={styles.image}><img src={sideBarImg} /></div>
+            <div className={styles.options}>
+                <div className={styles.links}>
                     <Link to="/" onClick={scrollToMenu} >MENU</Link>
                     <Link>LOCATIONS</Link>
                     <Link>BOOKINGS</Link>
@@ -32,7 +34,7 @@ function SideBar({ sidebarRef }) {
                     <Link>CONTACT</Link>
                 </div>
                 <Socials></Socials>
-                <button className="close" onClick={handleClose}>×</button>
+                <button className={styles.close} onClick={handleClose}>×</button>
             </div>
         </div>
     )

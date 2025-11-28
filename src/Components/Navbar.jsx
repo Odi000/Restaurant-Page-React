@@ -33,7 +33,7 @@ function Logo() {
 
 function CenterLinks() {
     const centerLinksRef = useRef(null);
-    const ourMenuRef = useContext(Meals);
+    const { ourMenuRef } = useContext(Meals);
 
     const scrollToMenu = () => {
         ourMenuRef.current.scrollIntoView({
@@ -54,7 +54,7 @@ function CenterLinks() {
 
     return (
         <div ref={centerLinksRef} className={styles.centerLinks}>
-            <Link to="/" onClick={handleScroll} >MENU</Link>
+            <Link to="/" onClick={scrollToMenu} >MENU</Link>
             <Link>LOCATIONS</Link>
             <Link>OUR STORY</Link>
             <Link>GIFT VOUCHERS</Link>
@@ -82,8 +82,9 @@ function Hamburger() {
     const sidebarRef = useRef(null);
 
     function handleOpen() {
-        sidebarRef.current.classList.add("open");
-        document.body.style.overflow = "hidden"
+        console.log(styles.open)
+        sidebarRef.current.classList.add(styles.open);
+        document.body.style.overflow = "hidden";
     }
 
     return (

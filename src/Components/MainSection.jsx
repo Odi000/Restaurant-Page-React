@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Meals } from "./Homepage";
 import { useContext } from "react";
-import styles from "./MainSection.module.css";
+import styles from "./css_modules/MainSection.module.css";
 
 
 function MainSection() {

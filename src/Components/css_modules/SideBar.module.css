@@ -1,17 +1,131 @@
 .sidebar {
-  display: none;
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.35);
+  transition: background .5s;
+}
+
+.loading {
+  background-color: black;
+}
+
+.halfway {
+  background-color: var(--main-clr);
+}
+
+.complete {
+  background-color: var(--main-clr);
+}
+
+.sidebar>* {
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.complete>* {
+  opacity: 1;
 }
 
 .sidebar img {
   width: 200px;
 }
 
-.open {
+.image {
+  width: 50%;
+}
+
+.image img {
+  width: 100%;
+}
+
+.options {
+  width: 50%;
+  padding-left: 100px;
   display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.linkz {
+  font-family: KGTangledUPInYou2;
+  font-size: 55px;
+  line-height: 59px;
+}
+
+.linkz>a {
+  display: block;
+  padding-top: 12px;
+  transition:
+    color .25s ease,
+    transform .25s ease;
+}
+
+.linkz>a:hover {
+  color: black;
+  transform: translateX(1vw);
+}
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 16px;
+  margin: 15px 0;
+  width: fit-content;
+}
+
+.circle {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+  height: 60px;
+  border: 1px solid #c8c8c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background .25s, color .25s;
+}
+
+.circle svg {
+  width: 65%;
+  transition: fill .25s;
+}
+
+.circle:hover {
+  background-color: black;
+}
+
+.circle:hover svg {
+  fill: white;
+}
+
+.bottomText {
+  color: white;
+  display: flex;
+  font-size: 14px;
+  gap: 30px;
+  padding-top: 12px;
+}
+
+.bottomText>a {
+  transition: color .25s ease;
+}
+
+.bottomText>a:hover {
+  color: black;
+}
+
+.close {
+  position: absolute;
+  --distance: 14px;
+  top: var(--distance);
+  right: var(--distance);
+  aspect-ratio: 1/1;
+  width: 65px;
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 46px;
 }

@@ -1,5 +1,3 @@
-@import "./SideBar.module.css";
-
 .navbar>a {
     display: flex;
     flex-flow: column;

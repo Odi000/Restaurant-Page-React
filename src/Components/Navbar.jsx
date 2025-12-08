@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import SideBar from "./SideBar";
 import styles from "./css_modules/Navbar.module.css";
 import { Meals } from "./Homepage";
@@ -80,11 +80,10 @@ function MainLinks() {
 
 function Hamburger() {
     const sidebarRef = useRef(null);
+    const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
     function handleOpen() {
-        console.log(styles.open)
-        sidebarRef.current.classList.add(styles.open);
-        document.body.style.overflow = "hidden";
+        setIsSideBarOpen(true);
     }
 
     return (
@@ -94,7 +93,13 @@ function Hamburger() {
                 <div></div>
                 <div className={styles.lineBottom}></div>
             </div>
-            <SideBar sidebarRef={sidebarRef}></SideBar>
+            {isSideBarOpen ?
+                <SideBar
+                    sidebarRef={sidebarRef}
+                    isSideBarOpen={isSideBarOpen}
+                    setIsSideBarOpen={setIsSideBarOpen} /> :
+                ""
+            }
         </>
     )
 }

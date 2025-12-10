@@ -80,7 +80,7 @@ function MainLinks() {
 
 function Hamburger() {
     const sidebarRef = useRef(null);
-    const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+    const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
     function handleOpen() {
         setIsSideBarOpen(true);

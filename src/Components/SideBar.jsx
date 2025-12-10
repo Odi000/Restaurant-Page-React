@@ -12,36 +12,64 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
 
     useEffect(() => {
         if (!openSidebar.isLoading && !openSidebar.isHalfway && !openSidebar.isComplete) {
-            document.body.style.overflow = "hidden";
-            setOpenSidebar(obj => ({ ...obj, isLoading: true }));
+            if (!closing) {
+                document.body.style.overflow = "hidden";
+                setOpenSidebar(obj => ({ ...obj, isLoading: true }));
+            } else {
+                const handleTrasition = (e) => {
+                    if (!(e.srcElement === sidebarRef.current)) return;
+                    setIsSideBarOpen(false);
+                    document.body.style.overflow = "visible";
+                }
+                sidebarRef.current.addEventListener("transitionend", handleTrasition);
+            }
         } else if (openSidebar.isLoading) {
-            const handleTrasition = (e) => {
-                if (!(e.srcElement === sidebarRef.current)) return;
-                setOpenSidebar(obj => ({ ...obj, isLoading: false, isHalfway: true }));
+            if (!closing) {
+                const handleTrasition = (e) => {
+                    if (!(e.srcElement === sidebarRef.current)) return;
+                    setOpenSidebar(obj => ({ ...obj, isLoading: false, isHalfway: true }));
+                }
+                sidebarRef.current.addEventListener("transitionend", handleTrasition);
+                return () => sidebarRef.current.removeEventListener("transitionend", handleTrasition);
+            } else {
+                const handleTrasition = (e) => {
+                    if (!(e.srcElement === sidebarRef.current)) return;
+                    setOpenSidebar(obj => ({ ...obj, isLoading: false }));
+                }
+                sidebarRef.current.addEventListener("transitionend", handleTrasition);
+                return () => sidebarRef.current.removeEventListener("transitionend", handleTrasition);
             }
-            sidebarRef.current.addEventListener("transitionend", handleTrasition);
-            return () => removeEventListener("transitionend", handleTrasition);
         } else if (openSidebar.isHalfway) {
-            const handleTrasition = (e) => {
-                if (!(e.srcElement === sidebarRef.current)) return;
-                setOpenSidebar(obj => ({ ...obj, isHalfway: false, isComplete: true }));
+            if (!closing) {
+                const handleTrasition = (e) => {
+                    if (!(e.srcElement === sidebarRef.current)) return;
+                    setOpenSidebar(obj => ({ ...obj, isHalfway: false, isComplete: true }));
+                }
+                sidebarRef.current.addEventListener("transitionend", handleTrasition);
+                return () => sidebarRef.current.removeEventListener("transitionend", handleTrasition);
+            } else {
+                const handleTrasition = (e) => {
+                    if (!(e.srcElement === sidebarRef.current.childNodes[0])) return;
+                    setOpenSidebar(obj => ({ ...obj, isLoading: true, isHalfway: false }));
+                }
+                sidebarRef.current.addEventListener("transitionend", handleTrasition);
+                return () => sidebarRef.current.removeEventListener("transitionend", handleTrasition);
             }
-            sidebarRef.current.addEventListener("transitionend", handleTrasition);
-            return () => removeEventListener("transitionend", handleTrasition);
         }
     }, [openSidebar]);
 
     function scrollToMenu() {
         handleClose()
-
-        ourMenuRef.current.scrollIntoView({
-            behavior: "smooth",
-        })
+        setTimeout(() => {
+            ourMenuRef.current.scrollIntoView({
+                behavior: "smooth",
+            })
+        }, 1000)
     }
 
     function handleClose() {
-        setIsSideBarOpen(false);
-        document.body.style.overflow = "visible";
+        setClosing(true);
+        setOpenSidebar(obj => ({ ...obj, isHalfway: true, isComplete: false }));
     }
 
     return (

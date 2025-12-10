@@ -72,6 +72,10 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
         setOpenSidebar(obj => ({ ...obj, isHalfway: true, isComplete: false }));
     }
 
+    function moveToCareers() {
+        document.body.style.overflow = "visible";
+    }
+
     return (
         <div className={openSidebar.isLoading ?
             `${styles.sidebar} ${styles.loading}` :
@@ -88,7 +92,7 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
                     <Link to="/" onClick={scrollToMenu} >MENU</Link>
                     <Link>LOCATIONS</Link>
                     <Link>BOOKINGS</Link>
-                    <NavLink to="/careers" onClick={handleClose}>CAREERS</NavLink>
+                    <NavLink to="/careers" onClick={moveToCareers}>CAREERS</NavLink>
                     <Link>CONTACT</Link>
                 </div>
                 <Socials styleModule={styles}></Socials>
@@ -96,7 +100,9 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
                     <a href="https://github.com/Odi000" target="_blank">Website by Odi000</a>
                     <p >© Copyright Dzo 2023.</p>
                 </div>
-                <button className={styles.close} onClick={handleClose}>×</button>
+                <button className={styles.close} onClick={handleClose}>
+                    <svg viewBox="0 0 24 24"><path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
+                </button>
             </div>
         </div>
     )

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 .footer {
     padding-top: 34px;
     background-color: #a4dac8;
@@ -78,6 +80,7 @@
 }
 
 .bottom {
+    color: white;
     border-top: 1px solid white;
     opacity: .5;
     justify-content: space-between;
@@ -112,7 +115,89 @@
         height: 50px;
     }
 
-    .footerLinks{
+    .footerLinks {
         font-size: 11px;
     }
+}
+
+/*-- News and offers component --*/
+
+.newsAndOffers {
+    max-width: 1240px;
+    margin: 80px auto 50px;
+    padding: 0 20px;
+}
+
+.newsAndOffers .container {
+    background-color: #a4dac8;
+    padding: 20px;
+}
+
+.top {
+    display: flex;
+    gap: 30px;
+}
+
+.top img {
+    width: 80px;
+}
+
+.title h2 {
+    font-size: 34px;
+    line-height: 52px;
+    letter-spacing: -2px;
+    font-weight: 500;
+    margin: 20px 0 6px;
+}
+
+.title p {
+    font-size: 16px;
+    color: #212529;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 78px 78px;
+    align-items: center;
+    gap: 0 30px;
+}
+
+.form>input {
+    border: 2px solid #bfbfbf;
+    font-family: KGSolid;
+    padding: 11px;
+}
+
+.form>input:focus {
+    outline: 2px solid #acacac;
+}
+
+.agreement {
+    display: flex;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    gap: 10px;
+}
+
+.agreement span {
+    cursor: pointer;
+    color: red;
+}
+
+.agreement button {
+    cursor: pointer;
+    font-family: KGSolid;
+    border: none;
+    padding: 15px;
+    font-size: 15px;
+    background-color: var(--main-clr);
+    color: white;
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.agreement button:hover {
+    background-color: black;
 }

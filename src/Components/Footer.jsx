@@ -21,7 +21,7 @@ const Footer = memo(() => {
     )
 })
 
-export function Socials({styleModule}) {
+export function Socials({ styleModule }) {
     return (
         <div className={styleModule.socials}>
             <div className={styleModule.circle}>
@@ -61,26 +61,29 @@ export function FooterLinks() {
     )
 }
 
-export function NewsAndOffers() {
+export function NewsAndOffers({ styleModule }) {
     return (
-        <div className="newsAndOffers">
-            <div className="left">
-                <div className="left-left">
+        <div className={style.newsAndOffers}>
+            <div className={style.container}>
+                <div className={style.top}>
                     <img src="/images/notepad.png" />
-                </div>
-                <div className="left-right">
-                    <h2>NEWS AND OFFERS</h2>
-                    <div>
-                        <input type="text" placeholder="Email" />
-                        <button className="redButtton">Submit</button>
+                    <div className={style.title}>
+                        <h2>NEWS AND OFFERS</h2>
+                        <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
                     </div>
-                    <div><input type="checkbox" id="agree" />
-                        <label htmlFor="agree">By signing up you are agreeing to receive marketing updates from Pho. You can find more information in our <span>Privacy Policy</span></label></div>
                 </div>
-            </div>
-            <div className="right">
-                <h1>GET SOCIAL</h1>
-                <Socials></Socials>
+                <form action="" onSubmit={(e) => e.preventDefault()} className={style.form}>
+                    <input name="_1" id="_1" placeholder="Type your first name*" required type="text" />
+                    <input name="_2" id="_2" placeholder="Type your last name*" required type="text" />
+                    <input name="_3" id="_3" placeholder="Type your email address*" required type="text" />
+                    <input name="_4" id="_4" placeholder="dd/mm/yyyy" type="date" />
+                    <input name="_5" id="_5" placeholder="Type your phone number*" type="text" required />
+                    <div className={style.agreement}>
+                        <input id="agree" type="checkbox" />
+                        <label htmlFor="agree">By signing up you are agreeing to receive marketing updates from Pho. You can find more information in our <span>Privacy Policy</span></label>
+                        <button type="" >Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     )

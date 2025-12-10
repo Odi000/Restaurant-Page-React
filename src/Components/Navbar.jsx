@@ -33,13 +33,6 @@ function Logo() {
 
 function CenterLinks() {
     const centerLinksRef = useRef(null);
-    const { ourMenuRef } = useContext(Meals);
-
-    const scrollToMenu = () => {
-        ourMenuRef.current.scrollIntoView({
-            behavior: "smooth",
-        })
-    }
 
     const handleScroll = () => {
         const pxScrolled = document.documentElement.scrollTop;
@@ -54,7 +47,7 @@ function CenterLinks() {
 
     return (
         <div ref={centerLinksRef} className={styles.centerLinks}>
-            <Link to="/" onClick={scrollToMenu} >MENU</Link>
+            <Link to="/" >MENU</Link>
             <Link>LOCATIONS</Link>
             <Link>OUR STORY</Link>
             <Link>GIFT VOUCHERS</Link>

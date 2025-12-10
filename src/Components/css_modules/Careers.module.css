@@ -1,3 +1,5 @@
+/*-- Careers section in Homepage --*/
+
 .careersHomePage {
     max-width: 1240px;
     display: flex;
@@ -131,5 +133,93 @@
     .careersHomePage {
         margin: 50px auto;
     }
+}
 
+/*-- Careers section in Careers page --*/
+.hero {
+    display: flex;
+    max-width: 1240px;
+    padding: 260px 20px 50px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero h1 {
+    font-size: 80px;
+    line-height: 96px;
+    background-color: white;
+    font-family: KGHappy;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding: 15px;
+    width: fit-content;
+}
+
+.buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.button {
+    cursor: pointer;
+    font-family: KGSolid;
+    border: none;
+    padding: 27px 15px;
+    font-size: 15px;
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.white {
+    background-color: white;
+    color: #515151;
+}
+
+.white:hover {
+    background-color: var(--main-clr);
+    color: white;
+}
+
+.video {
+    width: 50%;
+    padding: 20px;
+    border: 3px solid rgb(199, 199, 199);
+    background-color: white;
+}
+
+.video video {
+    width: 100%;
+}
+
+.information {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.container {
+    border: 2px solid rgb(199, 199, 199);
+    background-color: white;
+    padding: 30px;
+}
+
+.container h2 {
+    font-size: 28px;
+    line-height: 56px;
+    margin: 0 0 8px 16px;
+    font-weight: 500;
+}
+
+.container p {
+    font-size: 14px;
+    color: #787676;
+    margin: 0 0 16px 20px;
+}
+
+.container .button {
+    margin-top: 20px;
+    padding: 16px;
+    font-size: 14px;
 }

@@ -223,3 +223,15 @@
     padding: 16px;
     font-size: 14px;
 }
+
+.background {
+    position: fixed;
+    top: -354px;
+    left: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
+.background img {
+    width: 100%;
+}

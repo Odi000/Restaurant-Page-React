@@ -143,7 +143,6 @@ const Background = memo(() => {
             const totalScrollable = document.documentElement.scrollHeight;
             const p = scrolledFromTop / totalScrollable;
             const range = width <= 600 ? 820 :width <= 720 ? 780 : width <= 830 ? 700 : 610;
-            // const range = 610;
             const initialTop = 140;
             backgroundRef.current.style.top = `${(initialTop - range * p).toFixed(0)}px`;
         }
@@ -154,7 +153,7 @@ const Background = memo(() => {
     }, [])
 
     return (
-        <div id="kar" ref={backgroundRef} className={styles.background}>
+        <div ref={backgroundRef} className={styles.background}>
             <img src="/images/background.jpg" />
         </div>
     )

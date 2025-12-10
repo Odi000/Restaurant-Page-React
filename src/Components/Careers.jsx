@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import staffImg from "/images/careers.jpg";
 import Navbar from "./Navbar";
 import { NewsAndOffers, FooterLinks } from "./Footer";
@@ -8,10 +8,24 @@ import styles from "./css_modules/Careers.module.css"
 
 export default function Careers() {
     const [openVacancies, setOpenVacancies] = useState(false);
+    const videoRef = useRef(null);
 
     function handleClick() {
         setOpenVacancies(true);
     }
+    useEffect(() => {
+        const video = videoRef.current;
+
+        function handleVideoReady(e) {
+            alert("video is loaded")
+        }
+
+        video.addEventListener("canplay", handleVideoReady)
+
+        return () => video.removeEventListener("canplay",handleVideoReady)
+
+    }, [])
+
 
     return (
         <>
@@ -27,7 +41,7 @@ export default function Careers() {
                     </div>
                 </div>
                 <div className={styles.video}>
-                    <video autoPlay muted loop src="/videos/pho-recruitment.mp4"></video>
+                    <video ref={videoRef} autoPlay muted loop src="/videos/pho-recruitment.mp4"></video>
                 </div>
             </section>
             <section className={styles.information}>
@@ -37,11 +51,11 @@ export default function Careers() {
                     <p>We don’t employ robots, and we encourage our staff to be themselves at work, so they can feel happy, relaxed and give our customers the best possible Pho experience when they dine with us.</p>
                     <p>If you think like you’d be a good fit for Pho, you can read more about our benefits and explore our vacancies below.</p>
                     <button className={`${styles.redButton} ${styles.button}`} onClick={handleClick}>View Vacancies</button>
-
                 </div>
             </section>
             <NewsAndOffers styleModule={styles} />
             <FooterLinks />
+            <Background />
             {openVacancies ?
                 <Vacancies openVacancies={openVacancies} setOpenVacancies={setOpenVacancies} />
                 : ""
@@ -55,6 +69,33 @@ function Vacancies({ openVacancies, setOpenVacancies }) {
         <div className={openVacancies ? "open container" : "container"}>
             <h2>No vacancies available!</h2>
             <button onClick={() => setOpenVacancies(prevState => false)}>×</button>
+        </div>
+    )
+}
+
+function Background() {
+    const backgroundRef = useRef(null);
+
+    useEffect(() => {
+        function manageScroll() {
+            const width = window.innerWidth;
+            const scrolledFromTop = document.documentElement.scrollTop;
+            const totalScrollable = document.documentElement.scrollHeight;
+            const p = scrolledFromTop / totalScrollable;
+            const range = 300;
+            const initialTop = -354;
+            backgroundRef.current.style.top = `${(initialTop - range * p).toFixed(0)}px`;
+        }
+
+        window.addEventListener("scroll", manageScroll)
+
+        return () => window.removeEventListener("scroll", manageScroll);
+    }, [])
+
+
+    return (
+        <div ref={backgroundRef} className={styles.background} >
+            <img onLoad={()=>alert("img is loaded")} src="/images/background-careers.jpg" />
         </div>
     )
 }

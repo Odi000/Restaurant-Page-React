@@ -17,12 +17,12 @@ export default function Careers() {
         const video = videoRef.current;
 
         function handleVideoReady(e) {
-            alert("video is loaded")
+            console.log("video is loaded")
         }
 
         video.addEventListener("canplay", handleVideoReady)
 
-        return () => video.removeEventListener("canplay",handleVideoReady)
+        return () => video.removeEventListener("canplay", handleVideoReady)
 
     }, [])
 
@@ -41,7 +41,8 @@ export default function Careers() {
                     </div>
                 </div>
                 <div className={styles.video}>
-                    <video ref={videoRef} autoPlay muted loop src="/videos/pho-recruitment.mp4"></video>
+                    {/* Clip out parts of the video that show the real name PHO */}
+                    <video ref={videoRef} autoPlay muted loop playsInline src="/videos/pho-recruitment.mp4"></video>
                 </div>
             </section>
             <section className={styles.information}>
@@ -82,7 +83,8 @@ function Background() {
             const scrolledFromTop = document.documentElement.scrollTop;
             const totalScrollable = document.documentElement.scrollHeight;
             const p = scrolledFromTop / totalScrollable;
-            const range = 300;
+            // const range = 300;
+            const range = width <= 400 ? 385 : width <= 600 ? 425 : width <= 800 ? 430 : width <= 1000 ? 390 : 300;
             const initialTop = -354;
             backgroundRef.current.style.top = `${(initialTop - range * p).toFixed(0)}px`;
         }
@@ -94,8 +96,8 @@ function Background() {
 
 
     return (
-        <div ref={backgroundRef} className={styles.background} >
-            <img onLoad={()=>alert("img is loaded")} src="/images/background-careers.jpg" />
+        <div id="bkg" ref={backgroundRef} className={styles.background} >
+            <img src="/images/background-careers.jpg" />
         </div>
     )
 }

@@ -2,7 +2,8 @@ import { useRef, useEffect, useContext, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { Socials } from "./Footer"
 import sideBarImg from "/images/sidebar.jpg"
-import { Meals } from "./Homepage"
+import { Meals } from "../main"
+import pullOutComingSoon from "./pullOutComingSoon"
 import styles from "./css_modules/SideBar.module.css";
 
 function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
@@ -59,12 +60,20 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
     }, [openSidebar]);
 
     function scrollToMenu() {
-        handleClose()
+        document.body.style.overflow = "visible";
+        let delay = null;
+        if (location.pathname.includes("careers")) {
+            setClosing(true);
+            delay = 200;
+        } else {
+            handleClose();
+            delay = 1000;
+        }
         setTimeout(() => {
             ourMenuRef.current.scrollIntoView({
                 behavior: "smooth",
             })
-        }, 1000)
+        }, delay)
     }
 
     function handleClose() {
@@ -73,7 +82,12 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
     }
 
     function moveToCareers() {
-        document.body.style.overflow = "visible";
+        if (location.pathname.includes("careers")) {
+            handleClose();
+        } else {
+            document.body.style.overflow = "visible";
+            setClosing(true)
+        }
     }
 
     return (
@@ -90,10 +104,10 @@ function SideBar({ sidebarRef, setIsSideBarOpen, isSideBarOpen }) {
             <div className={styles.options}>
                 <div className={styles.linkz}>
                     <Link to="/" onClick={scrollToMenu} >MENU</Link>
-                    <Link>LOCATIONS</Link>
-                    <Link>BOOKINGS</Link>
+                    <Link onClick={pullOutComingSoon}>LOCATIONS</Link>
+                    <Link onClick={pullOutComingSoon}>BOOKINGS</Link>
                     <NavLink to="/careers" onClick={moveToCareers}>CAREERS</NavLink>
-                    <Link>CONTACT</Link>
+                    <Link onClick={pullOutComingSoon}>CONTACT</Link>
                 </div>
                 <Socials styleModule={styles}></Socials>
                 <div className={styles.bottomText}>

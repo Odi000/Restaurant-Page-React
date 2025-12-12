@@ -3,16 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import staffImg from "/images/careers.jpg";
 import Navbar from "./Navbar";
 import { NewsAndOffers, FooterLinks } from "./Footer";
-import styles from "./css_modules/Careers.module.css"
+import styles from "./css_modules/Careers.module.css";
+import pullOutComingSoon from "./pullOutComingSoon";
 
 
 export default function Careers() {
-    const [openVacancies, setOpenVacancies] = useState(false);
     const videoRef = useRef(null);
 
-    function handleClick() {
-        setOpenVacancies(true);
-    }
     useEffect(() => {
         const video = videoRef.current;
 
@@ -26,7 +23,6 @@ export default function Careers() {
 
     }, [])
 
-
     return (
         <>
             <Navbar />
@@ -34,10 +30,10 @@ export default function Careers() {
                 <div className="left">
                     <h1>Careers</h1>
                     <div className={styles.buttons}>
-                        <button className={`${styles.button} ${styles.redButton}`}>Careers</button>
-                        <button className={`${styles.button} ${styles.white}`}>Our Culture</button>
-                        <button className={`${styles.button} ${styles.white}`}>Pay & Benefits</button>
-                        <button className={`${styles.button} ${styles.white}`}>Vacancies</button>
+                        <button className={`${styles.button} ${styles.redButton}`} onClick={e => pullOutComingSoon(e, "No careers available!")}>Careers</button>
+                        <button className={`${styles.button} ${styles.white}`} onClick={pullOutComingSoon}>Our Culture</button>
+                        <button className={`${styles.button} ${styles.white}`} onClick={pullOutComingSoon}>Pay & Benefits</button>
+                        <button className={`${styles.button} ${styles.white}`} onClick={e => pullOutComingSoon(e, "No vacancies available!")}>Vacancies</button>
                     </div>
                 </div>
                 <div className={styles.video}>
@@ -51,26 +47,13 @@ export default function Careers() {
                     <p>We pride ourselves on not being a corporate chain. We’re a family-run business, and we want this to shine through in everything we do – from the food we cook fresh daily in each restaurant, to the teams we employ and train, to the way we greet and engage with our customers.</p>
                     <p>We don’t employ robots, and we encourage our staff to be themselves at work, so they can feel happy, relaxed and give our customers the best possible Pho experience when they dine with us.</p>
                     <p>If you think like you’d be a good fit for Pho, you can read more about our benefits and explore our vacancies below.</p>
-                    <button className={`${styles.redButton} ${styles.button}`} onClick={handleClick}>View Vacancies</button>
+                    <button className={`${styles.redButton} ${styles.button}`} onClick={e => pullOutComingSoon(e, "No vacancies available!")}>View Vacancies</button>
                 </div>
             </section>
             <NewsAndOffers styleModule={styles} />
             <FooterLinks />
             <Background />
-            {openVacancies ?
-                <Vacancies openVacancies={openVacancies} setOpenVacancies={setOpenVacancies} />
-                : ""
-            }
         </>
-    )
-}
-
-function Vacancies({ openVacancies, setOpenVacancies }) {
-    return (
-        <div className={openVacancies ? "open container" : "container"}>
-            <h2>No vacancies available!</h2>
-            <button onClick={() => setOpenVacancies(prevState => false)}>×</button>
-        </div>
     )
 }
 

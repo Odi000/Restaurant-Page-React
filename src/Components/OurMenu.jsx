@@ -1,6 +1,6 @@
 import { useContext, useMemo, useRef, useCallback, useState, memo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Meals } from "./Homepage";
+import { Meals } from "../main";
 import useMenu from "./useMenu";
 import styles from "./css_modules/OurMenu.module.css"
 

@@ -1,8 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import SideBar from "./SideBar";
 import styles from "./css_modules/Navbar.module.css";
-import { Meals } from "./Homepage";
+import { Meals } from "../main";
+import pullOutComingSoon from "./pullOutComingSoon";
 
 function Navbar() {
     return (
@@ -32,25 +33,35 @@ function Logo() {
 }
 
 function CenterLinks() {
+    const { ourMenuRef } = useContext(Meals);
     const centerLinksRef = useRef(null);
 
-    const handleScroll = () => {
+    function scrollToMenu() {
+
+        setTimeout(() => {
+            ourMenuRef.current.scrollIntoView({
+                behavior: "smooth",
+            })
+        }, 100)
+    }
+
+    const handleLinksScroll = () => {
         const pxScrolled = document.documentElement.scrollTop;
         centerLinksRef.current.style.top = `-${pxScrolled}px`;
     }
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleLinksScroll);
 
-        return () => removeEventListener("scroll", handleScroll);
+        return () => removeEventListener("scroll", handleLinksScroll);
     }, [])
 
     return (
         <div ref={centerLinksRef} className={styles.centerLinks}>
-            <Link to="/" >MENU</Link>
-            <Link>LOCATIONS</Link>
-            <Link>OUR STORY</Link>
-            <Link>GIFT VOUCHERS</Link>
+            <Link to="/" onClick={scrollToMenu} >MENU</Link>
+            <Link onClick={pullOutComingSoon} >LOCATIONS</Link>
+            <Link onClick={pullOutComingSoon}>OUR STORY</Link>
+            <Link onClick={pullOutComingSoon}>GIFT VOUCHERS</Link>
             <NavLink to="/careers" end  >CAREERS</NavLink>
         </div>
     )
@@ -59,11 +70,11 @@ function CenterLinks() {
 function MainLinks() {
     return (
         <div className={styles.mainLinks}>
-            <Link>
+            <Link onClick={e=>pullOutComingSoon(e,"All tables are booked!")}>
                 <img src="/images/icon-bag.svg" />
                 <span>Book a Table</span>
             </Link>
-            <Link>
+            <Link onClick={pullOutComingSoon}>
                 <img src="/images/icon-pin.svg" />
                 <span>Find a Dzo</span>
             </Link>

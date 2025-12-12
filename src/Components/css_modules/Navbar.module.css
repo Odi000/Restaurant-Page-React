@@ -59,7 +59,7 @@
 .centerLinks {
     position: relative;
     font-family: KGTangledUpInYou2, sans-serif;
-    padding-top: 10px;
+    padding-top: 2px;
     font-size: 28px;
     letter-spacing: 1px;
     display: flex;
@@ -69,7 +69,7 @@
 
 .centerLinks>a {
     display: block;
-    padding: 0 4px;
+    padding: 8px 4px 0;
     transition: box-shadow .25s ease-out;
     box-shadow: 0 0 0 0 var(--main-clr);
 }

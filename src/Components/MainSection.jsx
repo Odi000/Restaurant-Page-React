@@ -1,7 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import { Meals } from "./Homepage";
+import { Meals } from "../main";
 import { useContext } from "react";
 import styles from "./css_modules/MainSection.module.css";
+import pullOutComingSoon from "./pullOutComingSoon";
 
 
 function MainSection() {
@@ -28,10 +29,10 @@ function Buttons() {
     return (
         <div className={styles.buttons}>
             <Link onClick={scrollToMenu} >Menu</Link>
-            <Link>Book A Table</Link>
-            <Link>Dzo to go</Link>
+            <Link onClick={pullOutComingSoon} >Book A Table</Link>
+            <Link onClick={pullOutComingSoon}>Dzo to go</Link>
             <NavLink to="/careers" end>Careers</NavLink>
-            <Link>Nutrition</Link>
+            <Link onClick={pullOutComingSoon}>Nutrition</Link>
         </div >
     )
 }
